@@ -8,7 +8,7 @@ npm install
 
 ## Execution:
 ```
-node zetaconvert <file> <options>
+node zetaconvert <file> [options]
 ```
 Will generate a csv file in the same directory with `.csv` appended to the end.
 default.
