@@ -1,0 +1,8 @@
+{
+  "name": "apconvert",
+  "version": "1.0.0",
+  "dependencies": {
+    "line-reader": "^0.4.0",
+    "yargs": "^14.0.0"
+  }
+}
