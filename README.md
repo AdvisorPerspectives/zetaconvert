@@ -21,6 +21,13 @@ bash example-script.sh
 ```
 but substitute your own file.
 
+## Output
+A CSV file will be outputted with filtered results with the following columns
+
+|Date|Campaign Name|Event|Url|Email|
+|----------------------------------|
+|2019-11-26|DEDI: Allianz resend 201911|campaign_clicked|https://www.allianzlife.com/for-financial-professionals/ria?cmpid=7013g000000LYakAAG-pp-ria-ria-19--ln-191015|mczaja777@gmail.com|
+
 ## Options:
 
 ### Output FIle
