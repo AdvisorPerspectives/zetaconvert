@@ -3,12 +3,12 @@ Convert and Filter Zeta event JSON files to CSV
 
 ## Install
 ```
-$ npm install
+npm install
 ```
 
 ## Execution:
 ```
-$ node zetaconvert <file> <options>
+node zetaconvert <file> <options>
 ```
 Will generate a csv file in the same directory with `.csv` appended to the end.
 default.
