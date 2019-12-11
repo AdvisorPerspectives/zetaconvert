@@ -13,6 +13,14 @@ $ node zetaconvert <file> <options>
 Will generate a csv file in the same directory with `.csv` appended to the end.
 default.
 
+### Create a shell script
+See `example-script.sh` for examples of how to create a shell script to run multiple converts at a time, and to easily construct them in a file. Create your own `.sh` file and then run with with `bash` like:
+
+```bash
+bash example-script.sh
+```
+but substitute your own file.
+
 ## Options:
 
 ### Output FIle
