@@ -36,6 +36,13 @@ Specify an output filename. If not specified, the input file name will be used w
 --output="events_20191126-whitepaper.csv"
 ```
 
+
+#### Append
+Append output to a file rather than overwriting it
+```
+--append
+```
+
 #### URL
 Action contains a certain URL
 ```

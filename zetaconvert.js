@@ -31,6 +31,11 @@ const argv = yargs
       type: 'string',
       description: 'Output file name'
     })
+    .option('append', {
+      alias: 'a',
+      type: 'boolean',
+      description: 'Append to output file instead of overwrite.'
+    })
     .help()
     .argv;
 
@@ -40,7 +45,9 @@ const outputFile = argv.output ? argv.output : argv.file + '.csv';
 
 // Run program
 try {
-  clearOutputFile();
+  if (!argv.append) {
+    clearOutputFile();
+  }
   parseInputFile();
 } catch (err) {
   console.error(err)
@@ -80,13 +87,15 @@ function parseInputFile() {
     }
   });
 
+  const outputFileExist = fs.existsSync(outputFile);
+
   // For Each Input File Line
   lineReader.eachLine(readStream, function (line) {
       if (filterLine(line)) { // Process only certain lines
         convertedLines++;
 
         // Write CSV Headers
-        if (convertedLines === 1) {
+        if ((!argv.append  && convertedLines === 1) || (argv.append && !outputFileExist)) {
           writeStream.write('"Date","Campaign Name","Event","Url","Email"' + '\r\n');
         }
 
@@ -103,7 +112,7 @@ function parseInputFile() {
   }, function () {
 
     // DONE: Output end, stats
-    console.log(outputFile + ' written');
+    console.log(outputFile + ((!outputFileExist || !argv.append) ? ' created' : ' appended to'));
     console.log('Converted: ' + convertedLines + ' of ' + totalLines + ' rows');
   });
 }
