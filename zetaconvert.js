@@ -26,6 +26,10 @@ const argv = yargs
       type: 'boolean',
       description: 'Clicked events'
     })
+    .option('opened', {
+      type: 'boolean',
+      description: 'Opened events'
+    })
     .option('output', {
       alias: 'o',
       type: 'string',
@@ -55,7 +59,11 @@ try {
 
 // Only process records where this function returns true
 function filterLine(line) {
-  if (argv.clicked && line.indexOf('clicked') < 0) {
+  if (argv.opened && line.indexOf('campaign_opened') < 0) {
+    return false;
+  }
+  
+  if (argv.clicked && line.indexOf('campaign_clicked') < 0) {
     return false;
   }
 
