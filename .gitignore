@@ -1,6 +1,7 @@
 *.json*
 *.csv
 *.sh
+*.zip
 node_modules
 !package.json
 !example-script.sh
